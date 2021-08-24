@@ -28,7 +28,7 @@ class CustomDetailsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
+      child : Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -47,7 +47,7 @@ class CustomDetailsItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Flexible(
-                  child: Text(
+                  child : Text(
                     this.countryName,
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
                       fontWeight: FontWeight.w600,
@@ -61,79 +61,70 @@ class CustomDetailsItem extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 10, left: 8),
-                    margin: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(14.0),
-                      ),
+          Container(
+              padding: EdgeInsets.only(top: 10, bottom: 10, left: 8),
+              margin: EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(14.0),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 0),
+                    child: Container(
+                        width: 60,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1.0,
+                            color: Colors.grey[400],
+                          ),
+                        ),
+                        margin: const EdgeInsets.only(left: 5, right: 5),
+                        child: SvgPicture.network(
+                          this.networkPath.toString(),
+                          placeholderBuilder: (context) =>
+                              CircularProgressIndicator(),
+                          fit: BoxFit.cover,
+                        )),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Flexible(
+                    child : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          this.countryName + "("+this.alpha3Code +")",
+                          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          this.capitalName,
+                          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                          ),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
                     ),
-                    child: Expanded(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 0),
-                            child: Container(
-                                width: 60,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1.0,
-                                    color: Colors.grey[400],
-                                  ),
-                                ),
-                                margin: const EdgeInsets.only(left: 5, right: 5),
-                                child: SvgPicture.network(
-                                  this.networkPath.toString(),
-                                  placeholderBuilder: (context) =>
-                                      CircularProgressIndicator(),
-                                  fit: BoxFit.cover,
-                                )),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child : Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  this.countryName + "("+this.alpha3Code +")",
-                                  style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  this.capitalName,
-                                  style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          )
+                  )
 
-                        ],
-                      ),
-                    )),
-              )
-            ],
-          ),
+                ],
+              )),
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -461,7 +452,7 @@ class CustomDetailsItem extends StatelessWidget {
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Expanded(
+                                Flexible(
                                   child: Text(
                                     "Bordering Country Code",
                                     style: Theme.of(context)
@@ -471,6 +462,7 @@ class CustomDetailsItem extends StatelessWidget {
                                           color: Colors.grey,
                                           fontWeight: FontWeight.w500,
                                         ),
+                                      overflow: TextOverflow.ellipsis
                                   ),
                                 )
                               ],

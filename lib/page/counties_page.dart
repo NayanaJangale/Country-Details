@@ -149,26 +149,24 @@ class _CountiesPageState extends State<CountiesPage> {
   Widget getFilterBarUI() {
     return Padding(
       padding: EdgeInsets.only(left: 10,right: 10),
-      child:  Expanded(
-        child: TextFormField(
-          autofocus: true,
-          controller: filterController,
-          decoration: InputDecoration(
-              prefixIcon:   Icon(
-                Icons.search,
-                color: AppTheme.primary,
-                size: 20,
-              ),
-              hintText: "Search",
-              hintStyle: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(
-                color: AppTheme.primary,
-              )),
-          style:
-          Theme.of(context).textTheme.bodyText1.copyWith(
-          ),
+      child:  TextFormField(
+        autofocus: true,
+        controller: filterController,
+        decoration: InputDecoration(
+            prefixIcon:   Icon(
+              Icons.search,
+              color: AppTheme.primary,
+              size: 20,
+            ),
+            hintText: "Search",
+            hintStyle: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(
+              color: AppTheme.primary,
+            )),
+        style:
+        Theme.of(context).textTheme.bodyText1.copyWith(
         ),
       ),
     );
